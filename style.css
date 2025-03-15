@@ -15,9 +15,10 @@ body{
 .menuMobile{
   font-family: 'Courier New', Courier, monospace;
   font-size: 40px;
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   row-gap: 15px;
   width: 100%;
@@ -27,30 +28,6 @@ body{
 .dropdown{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  row-gap: 15px;
-  height: 100%;
-  width: 100%;
-}
-
-.dropdown span{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(1px);
-  height: 100px;
-  width: 90%;
-  border-radius: 15px;
-  opacity: 0; /* Pour s'assurer qu'il ne s'affiche pas avant l'animation */
-  animation: slideInUp 0.7s ease-in-out forwards;
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-.dropdownContent{
-  display: flex;
-  flex-direction: column;
   justify-content: start;
   align-items: center;
   row-gap: 15px;
@@ -58,28 +35,48 @@ body{
   width: 100%;
 }
 
-.dropdownContent span{
+.item{
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(1px);
   height: 100px;
-  width: 70%;
+  width: 90%;
   border-radius: 15px;
-  opacity: 0; /* Pour s'assurer qu'il ne s'affiche pas avant l'animation */
-  animation: slideInUp 0.7s ease-in-out forwards;
-  background-color: rgba(230, 230, 230, 0.3);
+  background-color: rgba(255, 255, 255, 0.3);  
 }
 
-.dropdown:hover > span{
+.dropdownContent{
+  display: none;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  row-gap: 15px;
+  width: 100%;
+  /* border-color: 5px solid yellow; */
+}
+
+.hidden{
+
+  opacity: 0;
+}
+
+.item:hover{
   color: white;
+}
+
+.dropdownContent .item{
+  width: 70%;
+}
+
+.up{
+  animation: slideInUp 0.4s ease-in-out forwards;
 }
 
 @keyframes slideInUp {
     from {
       opacity: 0;
-      transform: translateY(100vh);
+      transform: translateY(150px);
     }
     to {
       opacity: 1;
@@ -87,20 +84,14 @@ body{
     }
   }
 
-  .hidden{
-    display: none;
+  .show{
+    display: flex;
   }
 
-  .dropdown:nth-child(1) {    
-    animation-delay: 0.1s;
-  }
-  .dropdown:nth-child(2) {
-    animation-delay: 0.2s;
-  }
-  .dropdown:nth-child(4) {
-    background-color: red;
-    animation-delay: 0.3s;
+  .drop:nth-child(1) { 
+    animation-delay: 0.2s 
   }
 
-
-
+  .drop:nth-child(2) { 
+    animation-delay: 0.4s 
+  }  
